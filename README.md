@@ -34,7 +34,7 @@ The time slots are aligned to the deep sleep of the Atmel microcontroller and to
         case mid: n=13;
         case low: n=23;
       }
-      for (i=2..n) {
+      for (i=1..n) {
         for (k=1..4) {
           senddata_40us;
           waitact_250us;
