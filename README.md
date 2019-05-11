@@ -68,3 +68,11 @@ The frame consists of 4 bit header and six times 42 bit messages. Each message c
     | Head  | Msg-1  | Msg-2  | Msg-3  | Msg-4  | Msg-5  | Msg-6  |
     | 4-Bit | 42-Bit | 42-Bit | 42-Bit | 42-Bit | 42-Bit | 42-Bit |
 
+### message format
+
+Various types of communication are supported.
+
+* sequential message number
+* countdown node hopps
+* timeout resend intervals
+* direct routing
