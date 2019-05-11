@@ -55,3 +55,9 @@ The time slots are aligned to the deep sleep of the Atmel microcontroller and to
 This method enables data exchange between two neighboring nodes without time synchronization between each other. Each node inserts a random drift of 0..2 by varying the number of transmissions "n". This makes a permanent overlapping of reception times unlikely.
 
 Two different frequencies are used for communication.  It is transmitted directly one after the other on both channels.  Reading takes place alternately on both channels.
+
+## frame format
+
+Each frame consists of 32 bytes. This corresponds to the maximum size for data of nRF24 and the SSID of Wifi beacons. The frame consists of 4 bit header and six times 42 bit messages. Each message consists of a 10 bit header and 32 bit data.
+
+The small size of the 32-bit data is intended for querying measured values from sensors. No checksum is needed because the frame is embedded in the data part of nRF24 and Wifi.  Both protocols already have CRC.
