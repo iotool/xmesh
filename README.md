@@ -32,18 +32,23 @@ The time slots are aligned to the deep sleep of the Atmel microcontroller and to
 
     loop (forever) {
       switch (energy) {
-        case max: n=7;
-        case mid: n=13;
-        case low: n=23;
+        case max: n=7;  // 2.56mA
+        case mid: n=19; // 1.52mA
+        case low: n=37; // 1.24mA
       }
       for (i=1..n) {
-        for (k=1..4) {
-          senddata_40us;
-          waitact_250us;
+        for (f=1..2) {
+          toogle_sendfreq;
+          for (r=1..4) {
+            senddata_40us;
+            waitact_250us;
+          }
         }
         deepsleep_32ms;
         wakeupboot_4ms;
+        delay_1ms;
       }
+      toogle_recvfreq;
       recvdata_39ms;
     }
 
