@@ -56,8 +56,15 @@ This method enables data exchange between two neighboring nodes without time syn
 
 Two different frequencies are used for communication.  It is transmitted directly one after the other on both channels.  Reading takes place alternately on both channels.
 
-## frame format
+### frame format
 
-Each frame consists of 32 bytes. This corresponds to the maximum size for data of nRF24 and the SSID of Wifi beacons. The frame consists of 4 bit header and six times 42 bit messages. Each message consists of a 10 bit header and 32 bit data.
+Each frame consists of 32 bytes. This corresponds to the maximum size for data of nRF24 and the SSID of Wifi beacons. No checksum is needed because the frame is embedded in the data part of nRF24 and Wifi. Both protocols already have CRC.
 
-The small size of the 32-bit data is intended for querying measured values from sensors. No checksum is needed because the frame is embedded in the data part of nRF24 and Wifi.  Both protocols already have CRC.
+    | nRF24-Header | 32-Bit Data | nRF24-Footer |
+    | WifiBeacon-Header | 32-Bit SSID | WifiBeacon-Footer |
+
+The frame consists of 4 bit header and six times 42 bit messages. Each message consists of a 10 bit header and 32 bit data. The small size of the 32-bit data is intended for querying measured values from sensors. 
+
+    | Head  | Msg-1  | Msg-2  | Msg-3  | Msg-4  | Msg-5  | Msg-6  |
+    | 4-Bit | 42-Bit | 42-Bit | 42-Bit | 42-Bit | 42-Bit | 42-Bit |
+
