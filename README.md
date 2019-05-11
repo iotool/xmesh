@@ -77,7 +77,7 @@ Various types of communication are supported.
 * timeout resend intervals
 * direct routing
 
-#### message header
+_message header_
 
     | 10-bit |  meaning
     00000-----  reserved
