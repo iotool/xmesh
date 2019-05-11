@@ -76,3 +76,17 @@ Various types of communication are supported.
 * countdown node hopps
 * timeout resend intervals
 * direct routing
+
+#### message header
+
+    | 10-bit | meaning
+    0123456789 header
+    00xxxxxxxx routing-4 request
+    01xxxxxxxx routing-4 commit
+    1000xxxxxx routing-3 request
+    1001xxxxxx routing-3 commit
+    101000xxxx routing-2 request
+    101001xxxx routing-2 commit
+    10101000xx routing-1 request
+    10101001xx routing-1 commit
+    
