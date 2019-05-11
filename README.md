@@ -23,3 +23,24 @@ Unlike other systems, XMesh nodes are not permanently connected to each other. A
 The reason for this is the target power consumption of 1 mA on average and the fact that nodes are not coupled.  Every few milliseconds the repeater wakes up and forwards the messages or receives new messages.
 
 XMesh does not claim to be fast or reliable, but to enable extremely low cost nodes powered by solar cells.  With a larger solar cell or a permanent power supply the latency can be increased dynamically. At low energy levels, latency can be further increased and power consumption reduced.
+
+### time slots
+
+The time slots are aligned to the deep sleep of the Atmel microcontroller and to the transmit mode of nRF24. The protocol is optimized for continuous forwarding.  The reception time is selected so that at least one packet is received by a neighboring node.  The duration of the deep sleep is designed for a current consumption of 1.5 mA.
+
+    loop (forever) {
+      switch (energy) {
+        case max: n=7;
+        case mid: n=13;
+        case low: n=23;
+      }
+      for (i=2..n) {
+        for (k=1..4) {
+          senddata_40us;
+          waitact_250us;
+        }
+        deepsleep_32ms;
+        wakeupboot_4ms;
+      }
+      recvdata_39ms;
+    }
