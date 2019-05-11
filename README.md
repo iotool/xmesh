@@ -79,18 +79,22 @@ Various types of communication are supported.
 
 #### message header
 
-    | 10-bit | meaning
-    0123456789 header
-    0010cccccc
-    0011cccccc
-    01dddddddd
-    10dddddddd 
-    110000bbbb
-    110001bbbb
-    11001000aa
-    11001001aa
-    000------- 127
-    111------- 127
-    1101------ 64
-    110011---- 16
-    
+    | 10-bit |  meaning
+    00000-----  reserved
+    000010ssss  sequence-s 0..15 request
+    000011ssss  sequence-s 0..15 response
+    00010mmmmm  sequence-m 0..32 request
+    00011mmmmm  sequence-m 0..32 response
+    0010nnnnnn  hopcount 0..63 nodes
+    0011tttttt  timeout 0..63 secs
+    01dddddddd  routing level-4 request
+    1001cccccc  routing level-3 request
+    101001bbbb  routing level-2 request
+    10101001aa  routing level-1 request
+    1010101001  routing level-0 request
+    1010101010  routing broadcast
+    1010101011  routing level-0 commit
+    10101011aa  routing level-1 commit
+    101011bbbb  routing level-2 commit
+    1011cccccc  routing level-3 commit
+    11dddddddd  routing level-4 commit
