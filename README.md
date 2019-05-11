@@ -53,3 +53,5 @@ The time slots are aligned to the deep sleep of the Atmel microcontroller and to
     }
 
 This method enables data exchange between two neighboring nodes without time synchronization between each other. Each node inserts a random drift of 0..2 by varying the number of transmissions "n". This makes a permanent overlapping of reception times unlikely.
+
+Two different frequencies are used for communication.  It is transmitted directly one after the other on both channels.  Reading takes place alternately on both channels.
