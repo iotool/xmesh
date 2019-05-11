@@ -81,12 +81,16 @@ Various types of communication are supported.
 
     | 10-bit | meaning
     0123456789 header
-    00xxxxxxxx routing-4 request
-    01xxxxxxxx routing-4 commit
-    1000xxxxxx routing-3 request
-    1001xxxxxx routing-3 commit
-    101000xxxx routing-2 request
-    101001xxxx routing-2 commit
-    10101000xx routing-1 request
-    10101001xx routing-1 commit
+    0010cccccc
+    0011cccccc
+    01dddddddd
+    10dddddddd 
+    110000bbbb
+    110001bbbb
+    11001000aa
+    11001001aa
+    000------- 127
+    111------- 127
+    1101------ 64
+    110011---- 16
     
