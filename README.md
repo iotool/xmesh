@@ -1,6 +1,8 @@
 # XMesh
 
-XMesh is a experimental mesh network protocol for communication via nodes powered by small solar cells.
+XMesh is a mesh network protocol for communication via nodes powered by small solar cells.
+
+Unfortunately I noticed afterwards that there is already a much older project called XMesh Protocol developed by memsic. Both projects are neither related nor comparable. IOTool's project here has an experimental status.
 
 ## solar challenge
 
@@ -44,3 +46,5 @@ The time slots are aligned to the deep sleep of the Atmel microcontroller and to
       }
       recvdata_39ms;
     }
+
+This method enables data exchange between two neighboring nodes without time synchronization between each other. Each node inserts a random drift of 0..2 by varying the number of transmissions "n". This makes a permanent overlapping of reception times unlikely.
